@@ -14,7 +14,9 @@
   <div id="fixture" style="display: none">
 
   </div>
-  <script src="../dist/{%= name %}.js" data-cover></script>
+  <script src="../components/jquery/jquery.js"></script>
+  <script src="../components/fidel/dist/fidel.js" data-cover></script>
+  <script src="../dist/fidel.{%= name %}.js" data-cover></script>
   <script src="{%= name %}.test.js"></script>
   <script>
     if (navigator.userAgent.indexOf('PhantomJS') < 0) {
