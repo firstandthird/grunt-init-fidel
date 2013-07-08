@@ -69,11 +69,22 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: '<%= jshint.main %>',
-        tasks: 'scripts'
+        tasks: 'scripts',
+        options: {
+          livereload: true
+        }
+      },
+      example: {
+        files: [
+          'example/*'
+        ],
+        options: {
+          livereload: true
+        }
       },
       ci: {
         files: [
-          'GruntFile.js',
+          'Gruntfile.js',
           'test/index.html'
         ],
         tasks: 'default'
@@ -83,7 +94,8 @@ module.exports = function(grunt) {
       all: {
         src: 'test/index.html',
         options: {
-          run: true
+          run: true,
+          growl: true
         }
       }
     },
@@ -93,12 +105,6 @@ module.exports = function(grunt) {
           'reports': ['lib/*.js']
         }
       }
-    },
-    reloadr: {
-      main: [
-        'example/*',
-        'dist/*'
-      ]
     },
     connect: {
       server:{
@@ -131,10 +137,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-bytesize');
   grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-reloadr');
   grunt.loadNpmTasks('grunt-plato');
   grunt.registerTask('scripts', ['jshint', 'bower', 'concat', 'uglify', 'clean:bower', 'mocha', 'bytesize']);
   grunt.registerTask('default', ['scripts']);
-  grunt.registerTask('dev', ['connect:server', 'reloadr', 'watch']);
+  grunt.registerTask('dev', ['connect:server', 'watch']);
   grunt.registerTask('reports', ['plato', 'connect:plato']);
 };
