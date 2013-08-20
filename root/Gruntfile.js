@@ -91,12 +91,13 @@ module.exports = function(grunt) {
       }
     },
     mocha: {
+      options: {
+        run: true,
+        growl: true,
+        reporter: 'Spec'
+      },
       all: {
-        src: 'test/index.html',
-        options: {
-          run: true,
-          growl: true
-        }
+        src: 'test/index.html'
       }
     },
     plato: {
