@@ -10,13 +10,15 @@
     "fidel": "2.*"
   },
   "devDependencies": {
-    "assert": "*"
+    "assert": "*",
+    "blanket": "*"
   },
   "ignore": [
     "test",
     "example",
     "lib",
     "Gruntfile.js",
-    "package.json"
+    "package.json",
+    "grunt"
   ]
 }
